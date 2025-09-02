@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Happy Birthday Website 2.0 | Aoudumber Bade">
+    <meta name="github" content="https://github.com/Aoudumber-Bade">
+    <title>Meher Birthday</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<style>
+         body {
+      margin: 0;
+      overflow: hidden;
+      background: #fce4ec;
+      cursor: pointer;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    /* Balloon with gradient, shadow, and tail */
+    .balloon {
+      width: 40px;
+      height: 60px;
+      position: absolute;
+      border-radius: 50% 50% 50% 50%;
+      animation: floatUp 4s ease-in forwards;
+      z-index: 10;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.2);
+      transform: translateX(-50%);
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* Bear button */
+    #bearBtn {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 25px;
+      background: linear-gradient(to right, #ff6b81, #ff9a9e);
+      border: none;
+      border-radius: 20px;
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+    }
+
+    /* Bear image entry */
+    #bear {
+      position: absolute;
+      bottom: 0;
+      left: -300px;
+      width: 200px;
+      transition: left 2s ease-in-out;
+    }
+
+    #bear.active {
+      left: 30px;
+    }
+  </style>
+  <style>
+.name {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.love-btn {
+  background: linear-gradient(45deg, #ff4b2b, #ff416c);
+  border: none;
+  padding: 2px 2px;
+  border-radius: 20px;
+  color: white;
+  font-size: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 65, 108, 0.7);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.love-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.love-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.love-btn:hover::before {
+  top: 0;
+  left: 0;
+}
+
+.love-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 65, 108, 1);
+}
+</style>
+</head>
+
+<body>
+    
+    <div id="wrapper">
+        <div class="flag__birthday">
+            <img src="1.png" alt="" width="350" class="flag__left">
+            <img src="1.png" alt="" width="350" class="flag__right">
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="title">
+                    <h1 class="happy">
+                        <span style="--t: 4s;">H</span>
+                        <span style="--t: 4.2s;">a</span>
+                        <span style="--t: 4.4s;">p</span>
+                        <span style="--t: 4.6s;">p</span>
+                        <span style="--t: 4.8s;">y</span>
+                    </h1>
+                    <h1 class="birthday">
+                        <span style="--t: 5s;">B</span>
+                        <span style="--t: 5.2s;">i</span>
+                        <span style="--t: 5.4s;">r</span>
+                        <span style="--t: 5.6s;">t</span>
+                        <span style="--t: 5.8s;">h</span>
+                        <span style="--t: 6s;">d</span>
+                        <span style="--t: 6.2s;">a</span>
+                        <span style="--t: 6.4s;">y</span>
+                    </h1>
+                    <div class="hat">
+                        <img src="hat.png" alt="" width="130">
+                    </div>
+                </div>
+                <div class="date__of__birth">
+                    <span></span>
+                </div>
+                <div class="btn">
+                    <button id="btn__letter">
+                        <div class="mail">
+                            Click Here Miss white 
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                    </button>
+                    <img src="bird-unscreen (1).gif" width="100"
+     alt="Animated bird flying"
+     style="position: fixed; bottom: 10px; right: 10px; z-index: 999;">
+
+                </div>
+            </div>
+            <div class="right">
+                <div class="box__account">
+                    <!-- yaha se  -->
+                    <!-- <div class="image">
+                        <img src="unnamed.png" alt="A person smiling warmly, wearing a festive birthday hat, surrounded by colorful balloons and decorations in a cheerful celebration setting">
+                    </div> -->
+                    <!-- yaha tak  -->
+                     <!-- new hai ye code  -->
+                     <div class="image">
+                        
+    <!-- <img id="profileImage" src="unnamed.png" alt="Birthday image" width="150px" style="border-radius: 80%;"> -->
+      <img id="profileImage" src="image1.png" alt="Birthday image">
+
+</div>      
+    
+                    <div class="name">
+                        <i class="fa-solid fa-heart"></i>
+                        <!-- <span>tap me darling</span>  -->
+                        
+                        <button class="love-btn"  onclick="playMusic()">
+                           <span>Tap me Darling 💖 </span> 
+                        </button>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="balloon_one">
+                       <audio id="bgMusic" loop>
+    <source src="love.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+                        <img width="100px" src="balloon1.png" alt="">
+                    </div>
+                    <div class="balloon_two">
+                        <img width="100px" src="balloon2.png" alt="">
+                    </div>
+                </div>
+                <div class="cricle">
+                    <div class="text__cricle">
+                        <span style="--i: 1;">h</span>
+                        <span style="--i: 2;">a</span>
+                        <span style="--i: 3;">p</span>
+                        <span style="--i: 4;">p</span>
+                        <span style="--i: 5;">y</span>
+                        <span style="--i: 6;">-</span>
+                        <span style="--i: 7;">b</span>
+                        <span style="--i: 8;">i</span>
+                        <span style="--i: 9;">r</span>
+                        <span style="--i: 10;">t</span>
+                        <span style="--i: 11;">h</span>
+                        <span style="--i: 12;">d</span>
+                        <span style="--i: 13;">a</span>
+                        <span style="--i: 14;">y</span>
+                        <span style="--i: 15;">-</span>
+                    </div>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+            </div>
+        </div>
+        <div class="decorate_star star1" style="--t: 15s;"></div>
+        <div class="decorate_star star2" style="--t: 15.2s;"></div>
+        <div class="decorate_star star3" style="--t: 15.4s;"></div>
+        <div class="decorate_star star4" style="--t: 15.6s;"></div>
+        <div class="decorate_star star5" style="--t: 15.8s;"></div>
+        <div class="decorate_flower--one" style="--t: 15s;">
+            <img width="20" src="decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_flower--two" style="--t: 15.3s;">
+            <img width="20" src="decorate_flower.png" alt="">
+            <img src="mewmew.gif" id="mewmew" width="100" style="position: absolute; bottom: -20px; right: -20px">
+        </div>
+        <div class="decorate_flower--three" style="--t: 15.6s;">
+            <img width="20" src="decorate_flower.png" alt="">
+        </div>
+        <div class="decorate_bottom">
+            <img src="decorate.png" alt="" width="100">
+        </div>
+        <div class="smiley__icon">
+            <img src="smiley_icon.png" alt="" width="100">
+        </div>
+
+
+        <div class="boxMail">
+            <i class="fa-solid fa-xmark"></i>
+            <div class="boxMail-container">
+                <div class="card1">
+                    <div class="userImg">
+                        <img src="image1.png" alt="">
+                    </div>
+                    <h4 class="username">To: Meher 💖<span class="underline"></span></h4>
+
+                    <h3>Happy Birthday</h3>
+                    <div class="imageCute">
+                        <img src="cute1.png" alt="">
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card2-content">
+                        <h3>To You!</h3>
+                        <h2>Happy Birthday my love 🎂💖,
+                           today is not just your special day but also the day my heart found its reason to smile.
+                            From the moment you came into my life, everything changed beautifully. 
+                            Tum meri duaon ka sabse khoobsurat jawab ho.
+                             I wish this year brings endless happiness, success and love in your life.
+                              Tum meri duniya ka wo hissa ho jahan sukoon bas tumse milta hai. Stay always happy, healthy and shining like a star. 
+                              May our bond grow deeper forever. Once again, Happy Birthday my jaan 🎉😘💞
+                        </h2>
+
+                        <!-- <div class="imageCute2"> -->
+                           <img src="bird-unscreen (1).gif"
+         width="100"
+         style="position: absolute; bottom: 10px; right: 10px;">
+
+                            <!-- <img src="cute2.png" alt="" width="200" height="200"\\> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bear Button -->
+<!-- <div class="bear-button" onclick="showBear()">
+    🧸 Tap Me
+</div> -->
+<!-- <div class="bear-button" onclick="showBear(); showFlyingBalloons();">
+  🧸 Tap Me
+</div> -->
+
+ <button id="bearBtn">🎂 Call the Bear!</button>
+ <audio src="bearVoice.mp3"id="bearVoice" src="bear_voice.mp3"></audio>
+<img src="Bear1.png" id="bear" src="🧸 " alt="bear with cake" />
+
+<!-- Bear with Cake -->
+<!-- <div class="bear-entry" id="bearEntry">
+    <img src="cute1.jpg" alt="Bear with Cake" width="30" height="30"/>
+</div> -->
+
+<canvas id="fireworks-canvas"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.min.js"></script>
+
+<script>
+  const images = [
+     "image1.png",
+    "image2.png",
+    "image3.png",
+    "image4.png"
+  ];
+
+  let TurrentIndex = 0;
+  const imgElement = document.getElementById("profileImage");
+
+  setInterval(() => {
+    // Start fade-out
+    imgElement.style.opacity = 0;
+
+    setTimeout(() => {
+      // Change image after fade-out
+      TurrentIndex = (TurrentIndex + 1) % images.length;
+      imgElement.src = images[TurrentIndex];
+
+      // Fade-in
+      imgElement.style.opacity = 1;
+    }, 100); // Wait for fade-out to complete before changing
+  }, 4000); // Change every 3 seconds
+</script>
+ <script>
+    function playMusic() {
+      let music = document.getElementById("bgMusic");
+      music.play();
+    }
+  </script>
+     <script>
+    window.addEventListener("click", function () {
+      let sound = document.getElementById("fireSound");
+      sound.muted = false;   // unmute after user interaction
+      sound.play();
+    });
+  </script>
+  <script>
+  const btn = document.getElementById("bearBtn");
+  const audio = document.getElementById("bearVoice");
+
+  btn.addEventListener("click", () => {
+    // yahan tum apna bear animation call karo
+    audio.play();
+  });
+</script>
+
+</body>
+<!-- <img src="bird-unscreen (1).gif" width="100"
+     alt="Animated bird flying"
+     style="position: fixed; bottom: 10px; right: 10px; z-index: 999;"> -->
+
+    
+<script>
+  const canvas = document.getElementById("fireworks-canvas");
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  let particles = [];
+
+  class Particle {
+    // constructor(x, y, color) {
+    //   this.x = x;
+    //   this.y = y;
+    //   this.radius = 2;
+    //   this.color = color;
+    //   this.speedX = (Math.random() - 0.5) * 6;
+    //   this.speedY = (Math.random() - 0.5) * 6;
+    //   this.alpha = 1;
+    // }
+     constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.radius = 2;
+    this.color = color;
+    this.speedX = (Math.random() - 0.5) * 6;
+    this.speedY = (Math.random() - 0.5) * 6;
+    this.alpha = 1;
+    this.gravity = 0;
+    this.friction = 1;
+    this.glow = false;
+  }
+
+    // draw() {
+    //   ctx.globalAlpha = this.alpha;
+    //   ctx.beginPath();
+    //   ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    //   ctx.fillStyle = this.color;
+    //   ctx.fill();
+    // }
+    draw() {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    if (this.glow) {
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = this.color;
+    }
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.restore();
+  }
+
+
+     update() {
+    this.speedX *= this.friction;
+    this.speedY *= this.friction;
+    this.speedY += this.gravity;
+
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    this.alpha -= 0.01;
+  }
+  }
+
+//   function createFirework(x, y) {
+//     const colors = ["#ff5252", "#ffd700", "#00e5ff", "#69f0ae", "#ff4081"];
+//     for (let i = 0; i < 30; i++) {
+//       const color = colors[Math.floor(Math.random() * colors.length)];
+//       particles.push(new Particle(x, y, color));
+//     }
+//   }
+function createFirework(x, y) {
+  const colors = ["#ff5252", "#ffd700", "#00e5ff", "#69f0ae", "#ff4081", "#ffffff"];
+  const explosionRadius = 2 + Math.random() * 2; // radius variation
+  const particleCount = 50;
+
+  for (let i = 0; i < particleCount; i++) {
+    const angle = (Math.PI * 2 * i) / particleCount;
+    const speed = explosionRadius + Math.random() * 2;
+
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const p = new Particle(x, y, color);
+
+    // Circular explosion spread
+    p.speedX = Math.cos(angle) * speed;
+    p.speedY = Math.sin(angle) * speed;
+    p.radius = 2 + Math.random() * 2; // glow size
+    p.gravity = 0.03; // downward pull
+    p.friction = 0.99; // smooth out movement
+    p.glow = true; // add glow later
+
+    particles.push(p);
+  }
+}
+
+
+  canvas.addEventListener("click", (e) => {
+    createFirework(e.clientX, e.clientY);
+  });
+
+  setInterval(() => {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height * 0.5;
+    createFirework(x, y);
+  }, 1200);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach((p, i) => {
+      p.update();
+      p.draw();
+      if (p.alpha <= 0) particles.splice(i, 1);
+    });
+  }
+
+  animate();
+</script>
+<script>
+  function showBear() {
+    const bear = document.getElementById("bearEntry");
+    bear.classList.add("show");
+
+    // Optional: remove bear after 8 seconds
+    setTimeout(() => {
+      bear.classList.remove("show");
+    }, 8000);
+  }
+</script>
+
+<script>
+    let datetxt = "2 Sept";
+    let datatxtletter = "My love. You are a very special girl. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕";
+    let titleLetter = "To you";
+    let charArrDate = datetxt.split('');
+    let charArrDateLetter = datatxtletter.split('');
+    let charArrTitle = titleLetter.split('');
+    let currentIndex = 0;
+    let currentIndexLetter = 0;
+    let currentIndexTitle = 0;
+    let date__of__birth = document.querySelector(".date__of__birth span");
+    let text__letter = document.querySelector(".text__letter p");
+    setTimeout(function () {
+        timeDatetxt = setInterval(function () {
+            if (currentIndex < charArrDate.length) {
+                date__of__birth.textContent += charArrDate[currentIndex];
+                currentIndex++;
+            }
+            else {
+                let i = document.createElement("i");
+                i.className = "fa-solid fa-star"
+                document.querySelector(".date__of__birth").prepend(i)
+                document.querySelector(".date__of__birth").appendChild(i.cloneNode(true))
+                clearInterval(timeDatetxt)
+            }
+        }, 100)
+    }, 12000)
+
+    var intervalContent;
+    var intervalTitle;
+    $("#btn__letter").on("click", function () {
+        $(".box__letter").slideDown()
+        setTimeout(function () {
+            $(".letter__border").slideDown();
+        }, 1000)
+        setTimeout(function () {
+            intervalTitle = setInterval(function () {
+                if (currentIndexTitle < charArrTitle.length) {
+                    document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
+                    let i = document.createElement("i");
+                    i.className = "fa-solid fa-heart"
+                    document.querySelector(".title__letter").appendChild(i)
+                    currentIndexTitle++;
+                }
+                else {
+                    clearInterval(intervalTitle)
+                }
+            }, 100)
+        }, 2000)
+        setTimeout(function () {
+            document.querySelector("#heart__letter").classList.add("animationOp");
+            document.querySelector(".love__img").classList.add("animationOp");
+            document.querySelector("#mewmew").classList.add("animationOp");
+        }, 2800)
+        setTimeout(function () {
+            document.querySelectorAll(".heart").forEach((item) => {
+                item.classList.add("animation")
+            })
+        }, 3500)
+        setTimeout(function () {
+            intervalContent = setInterval(function () {
+                if (currentIndexLetter < charArrDateLetter.length) {
+                    text__letter.textContent += charArrDateLetter[currentIndexLetter];
+                    currentIndexLetter++;
+                }
+                else {
+                    clearInterval(intervalContent)
+                }
+            }, 50)
+        }, 6000)
+    })
+    $(".close").on("click", function () {
+        clearInterval(intervalContent)
+        document.querySelector(".title__letter").textContent = "";
+        text__letter.textContent = "";
+        currentIndexLetter = 0
+        currentIndexTitle = 0
+        document.querySelector("#heart__letter").classList.remove("animationOp");
+        document.querySelector(".love__img").classList.remove("animationOp");
+        document.querySelector("#mewmew").classList.remove("animationOp");
+        document.querySelectorAll(".heart").forEach((item) => {
+            item.classList.remove("animation")
+        })
+        $(".box__letter").slideUp();
+        $(".letter__border").slideUp();
+    })
+
+
+
+    let mailBox = document.querySelector('.mail')
+    let boxmail = document.querySelector('.boxMail')
+    var close = document.querySelector('.fa-xmark')
+    mailBox.onclick = function () {
+        mailBox.classList.toggle('active')
+        boxmail.classList.add('active')
+    }
+
+    close.addEventListener('click', function () {
+        boxmail.classList.remove('active')
+    })
+
+
+// // Balloon Colors
+//     const colors = ["red", "blue", "yellow", "green", "purple", "orange", "pink"];
+
+//     // Click anywhere to generate balloons
+//     document.body.addEventListener("click", function (e) {
+//       for (let i = 0; i < 5; i++) {
+//         const balloon = document.createElement("div");
+//         balloon.classList.add("balloon");
+//         balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+//         balloon.style.left = `${e.clientX + (Math.random() * 100 - 50)}px`;
+//         balloon.style.top = `${e.clientY}px`;
+//         balloon.style.animationDuration = `${2 + Math.random() * 2}s`;
+//         document.body.appendChild(balloon);
+
+//         setTimeout(() => {
+//           balloon.remove();
+//         }, 4000);
+//       }
+//     });
+//    const bearBtn = document.getElementById("bearBtn");
+//     const bear = document.getElementById("bear");
+
+//     bearBtn.addEventListener("click", () => {
+//       bear.classList.toggle("active");
+//     });
+
+    const balloonColors = [
+      "radial-gradient(circle at 30% 30%, #ff4e50, #f9d423)",
+      "radial-gradient(circle at 30% 30%, #1e90ff, #00bfff)",
+      "radial-gradient(circle at 30% 30%, #32cd32, #adff2f)",
+      "radial-gradient(circle at 30% 30%, #ff69b4, #ff1493)",
+      "radial-gradient(circle at 30% 30%, #ffa500, #ffd700)"
+    ];
+
+    // On click anywhere create multiple realistic balloons
+    document.body.addEventListener("click", function (e) {
+      for (let i = 0; i < 5; i++) {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.left = `${e.clientX + (Math.random() * 100 - 50)}px`;
+        balloon.style.top = `${e.clientY}px`;
+        balloon.style.background = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+        balloon.style.boxShadow = "inset -4px -4px 10px rgba(255,255,255,0.6), 0 4px 8px rgba(0,0,0,0.2)";
+        balloon.style.animationDuration = `${3 + Math.random() * 2}s`;
+        document.body.appendChild(balloon);
+
+        setTimeout(() => {
+          balloon.remove();
+        }, 5000);
+      }
+    });
+    // Bear Entry
+    const bearBtn = document.getElementById("bearBtn");
+    const bear = document.getElementById("bear");
+
+    bearBtn.addEventListener("click", () => {
+      bear.classList.toggle("active");
+    });
+    
+</script>
+
+
+</html>  
